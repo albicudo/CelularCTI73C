@@ -22,7 +22,7 @@ namespace CelularCTI.Model.Entidades
         public string Nome
         { 
             get { return nome; } 
-            set {  nome = value; } 
+            set {  nome = value;} 
         }
         public string Observacao
         { 
