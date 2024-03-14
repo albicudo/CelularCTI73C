@@ -26,7 +26,7 @@ namespace CelularCTI.Model.Suporte
 
 
         static NpgsqlConnection cn;
-        public static void Conectar()
+        private static void Conectar()
         {
             if (cn == null)
                 cn = new NpgsqlConnection();
@@ -43,7 +43,7 @@ namespace CelularCTI.Model.Suporte
                 throw new ApplicationException(ex.Message);
             }
         }
-        public static void Desconectar()
+        private static void Desconectar()
         {
             cn.Close();// fecha a conexão com o banco de dados
             cn.Dispose(); // libera os recursos utilizados
