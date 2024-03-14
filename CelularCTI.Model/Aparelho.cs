@@ -52,5 +52,14 @@ namespace CelularCTI.Model.Entidades
             }
         }
         public decimal Desconto { get; set; }
+
+        public override String ToString()
+        {
+            // veremos o uso deste método em breve.
+            return Fabricante.Nome.PadRight(10) + " " + 
+                Modelo.PadRight(20) + " - " + 
+                Preco.ToString("C").PadLeft(10) +
+                " (" + Quantidade + " em estoque)";
+        }
     }
 }

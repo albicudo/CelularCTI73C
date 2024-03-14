@@ -21,7 +21,7 @@ namespace CelularCTI.Model
             Fabricante fab = new Fabricante();
             fab.Id_Fabricante = Convert.ToInt64(dtr["id_fabricante"]);
             fab.Nome = dtr["nome"].ToString();
-            fab.Observacao = dtr["observacao"].ToString();
+            //fab.Observacao = dtr["observacao"].ToString();
             return fab;
         }
 
@@ -30,13 +30,13 @@ namespace CelularCTI.Model
             Aparelho a = new Aparelho();
             a.Id_Aparelho = Convert.ToInt64(dtr["id_aparelho"]);
             a.Modelo = (string)dtr["modelo"];
-            a.Quantidade = (double)dtr["quantidade"];
-            a.Largura = (double)(dtr["largura"]);
-            a.Altura = (double)(dtr["altura"]);
-            a.Espessura = (double)(dtr["espessura"]);
-            a.Peso = (double)(dtr["peso"]);
-            a.Preco = (decimal)(dtr["preco"]);
-            a.Desconto = (decimal)(dtr["desconto"]);
+            a.Quantidade = Convert.ToDouble(dtr["quantidade"]);
+            a.Largura = Convert.ToDouble(dtr["largura"]);
+            a.Altura = Convert.ToDouble(dtr["altura"]);
+            a.Espessura = Convert.ToDouble(dtr["espessura"]);
+            a.Peso = Convert.ToDouble(dtr["peso"]);
+            a.Preco = Convert.ToDecimal(dtr["preco"]);
+            a.Desconto = Convert.ToDecimal(dtr["desconto"]);
             a.Fabricante = ObjFabricante(ref dtr);
 
             return a;
@@ -189,7 +189,7 @@ namespace CelularCTI.Model
             return aparelho;
         }
 
-        public static List<Aparelho> BuscarAparelhos(Fabricante f)
+        public static List<Aparelho> BuscarAparelho(Fabricante f)
         {
             List<Aparelho> aparelho = new List<Aparelho>();
             NpgsqlDataReader dtr = ConexaoBanco.Selecionar(
