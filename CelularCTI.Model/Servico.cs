@@ -236,7 +236,7 @@ namespace CelularCTI.Model
             }
             catch (Exception ex)
             {
-                throw new ApplicationException("Não foi ´possível efetivar o pedido  da compra!"
+                throw new ApplicationException("Não foi possível efetivar o pedido  da compra !!!"
                                                 + "\n\nMais detalhes: " + ex.Message);
             }
             return p;
