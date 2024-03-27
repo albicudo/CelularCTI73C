@@ -29,37 +29,39 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmbFabricante = new System.Windows.Forms.ComboBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.btnPesquisarFabricante = new System.Windows.Forms.Button();
+            this.btnPesquisarModelo = new System.Windows.Forms.Button();
+            this.btnPesquisarPreco = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numPrecoInicial = new System.Windows.Forms.NumericUpDown();
+            this.numPrecoMaximo = new System.Windows.Forms.NumericUpDown();
+            this.numPrecoMinimo = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnListarTodos = new System.Windows.Forms.Button();
             this.lstCelulares = new System.Windows.Forms.ListBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnComprar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecoInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecoMaximo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecoMinimo)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.cmbFabricante);
+            this.groupBox1.Controls.Add(this.txtModelo);
+            this.groupBox1.Controls.Add(this.btnPesquisarFabricante);
+            this.groupBox1.Controls.Add(this.btnPesquisarModelo);
+            this.groupBox1.Controls.Add(this.btnPesquisarPreco);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.numPrecoInicial);
+            this.groupBox1.Controls.Add(this.numPrecoMaximo);
+            this.groupBox1.Controls.Add(this.numPrecoMinimo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -72,50 +74,53 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Pesquisar por:  ";
             // 
-            // comboBox1
+            // cmbFabricante
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 122);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(343, 26);
-            this.comboBox1.TabIndex = 10;
+            this.cmbFabricante.FormattingEnabled = true;
+            this.cmbFabricante.Location = new System.Drawing.Point(123, 122);
+            this.cmbFabricante.Name = "cmbFabricante";
+            this.cmbFabricante.Size = new System.Drawing.Size(343, 26);
+            this.cmbFabricante.TabIndex = 10;
             // 
-            // textBox1
+            // txtModelo
             // 
-            this.textBox1.Location = new System.Drawing.Point(123, 77);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(344, 26);
-            this.textBox1.TabIndex = 9;
+            this.txtModelo.Location = new System.Drawing.Point(123, 77);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(344, 26);
+            this.txtModelo.TabIndex = 9;
             // 
-            // button3
+            // btnPesquisarFabricante
             // 
-            this.button3.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(495, 119);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 28);
-            this.button3.TabIndex = 8;
-            this.button3.Text = ">>";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnPesquisarFabricante.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarFabricante.Location = new System.Drawing.Point(495, 119);
+            this.btnPesquisarFabricante.Name = "btnPesquisarFabricante";
+            this.btnPesquisarFabricante.Size = new System.Drawing.Size(82, 28);
+            this.btnPesquisarFabricante.TabIndex = 8;
+            this.btnPesquisarFabricante.Text = ">>";
+            this.btnPesquisarFabricante.UseVisualStyleBackColor = true;
+            this.btnPesquisarFabricante.Click += new System.EventHandler(this.btnPesquisarFabricante_Click);
             // 
-            // button2
+            // btnPesquisarModelo
             // 
-            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(495, 77);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 28);
-            this.button2.TabIndex = 7;
-            this.button2.Text = ">>";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPesquisarModelo.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarModelo.Location = new System.Drawing.Point(495, 77);
+            this.btnPesquisarModelo.Name = "btnPesquisarModelo";
+            this.btnPesquisarModelo.Size = new System.Drawing.Size(82, 28);
+            this.btnPesquisarModelo.TabIndex = 7;
+            this.btnPesquisarModelo.Text = ">>";
+            this.btnPesquisarModelo.UseVisualStyleBackColor = true;
+            this.btnPesquisarModelo.Click += new System.EventHandler(this.btnPesquisarModelo_Click);
             // 
-            // button1
+            // btnPesquisarPreco
             // 
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(495, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 28);
-            this.button1.TabIndex = 6;
-            this.button1.Text = ">>";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPesquisarPreco.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisarPreco.Location = new System.Drawing.Point(495, 36);
+            this.btnPesquisarPreco.Name = "btnPesquisarPreco";
+            this.btnPesquisarPreco.Size = new System.Drawing.Size(82, 28);
+            this.btnPesquisarPreco.TabIndex = 6;
+            this.btnPesquisarPreco.Text = ">>";
+            this.btnPesquisarPreco.UseVisualStyleBackColor = true;
+            this.btnPesquisarPreco.Click += new System.EventHandler(this.btnPesquisarPreco_Click);
             // 
             // label4
             // 
@@ -126,63 +131,63 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "a";
             // 
-            // numericUpDown1
+            // numPrecoMaximo
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Increment = new decimal(new int[] {
+            this.numPrecoMaximo.DecimalPlaces = 2;
+            this.numPrecoMaximo.Increment = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDown1.Location = new System.Drawing.Point(319, 34);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numPrecoMaximo.Location = new System.Drawing.Point(319, 34);
+            this.numPrecoMaximo.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(151, 26);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numericUpDown1.ThousandsSeparator = true;
+            this.numPrecoMaximo.Name = "numPrecoMaximo";
+            this.numPrecoMaximo.Size = new System.Drawing.Size(151, 26);
+            this.numPrecoMaximo.TabIndex = 4;
+            this.numPrecoMaximo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numPrecoMaximo.ThousandsSeparator = true;
             // 
-            // numPrecoInicial
+            // numPrecoMinimo
             // 
-            this.numPrecoInicial.DecimalPlaces = 2;
-            this.numPrecoInicial.Increment = new decimal(new int[] {
+            this.numPrecoMinimo.DecimalPlaces = 2;
+            this.numPrecoMinimo.Increment = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numPrecoInicial.Location = new System.Drawing.Point(123, 34);
-            this.numPrecoInicial.Maximum = new decimal(new int[] {
+            this.numPrecoMinimo.Location = new System.Drawing.Point(123, 34);
+            this.numPrecoMinimo.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
             0,
             0});
-            this.numPrecoInicial.Name = "numPrecoInicial";
-            this.numPrecoInicial.Size = new System.Drawing.Size(151, 26);
-            this.numPrecoInicial.TabIndex = 3;
-            this.numPrecoInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.numPrecoInicial.ThousandsSeparator = true;
+            this.numPrecoMinimo.Name = "numPrecoMinimo";
+            this.numPrecoMinimo.Size = new System.Drawing.Size(151, 26);
+            this.numPrecoMinimo.TabIndex = 3;
+            this.numPrecoMinimo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numPrecoMinimo.ThousandsSeparator = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(31, 125);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
+            this.label3.Size = new System.Drawing.Size(78, 18);
             this.label3.TabIndex = 2;
-            this.label3.Text = "label3";
+            this.label3.Text = "Fabricante:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(29, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 18);
+            this.label2.Size = new System.Drawing.Size(56, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.label2.Text = "Modelo:";
             // 
             // label1
             // 
@@ -195,51 +200,75 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnListarTodos);
             this.groupBox2.Controls.Add(this.lstCelulares);
             this.groupBox2.Location = new System.Drawing.Point(25, 215);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(696, 389);
+            this.groupBox2.Size = new System.Drawing.Size(696, 423);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Celulares : ";
             // 
+            // btnListarTodos
+            // 
+            this.btnListarTodos.Font = new System.Drawing.Font("Comic Sans MS", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListarTodos.Location = new System.Drawing.Point(512, 362);
+            this.btnListarTodos.Name = "btnListarTodos";
+            this.btnListarTodos.Size = new System.Drawing.Size(141, 28);
+            this.btnListarTodos.TabIndex = 8;
+            this.btnListarTodos.Text = "&Listar todos aparelhos";
+            this.btnListarTodos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListarTodos.UseVisualStyleBackColor = true;
+            this.btnListarTodos.Click += new System.EventHandler(this.btnListarTodos_Click);
+            // 
             // lstCelulares
             // 
-            this.lstCelulares.Font = new System.Drawing.Font("Liberation Mono", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstCelulares.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstCelulares.FormattingEnabled = true;
-            this.lstCelulares.ItemHeight = 18;
+            this.lstCelulares.ItemHeight = 15;
             this.lstCelulares.Location = new System.Drawing.Point(17, 37);
             this.lstCelulares.Name = "lstCelulares";
-            this.lstCelulares.Size = new System.Drawing.Size(650, 310);
+            this.lstCelulares.Size = new System.Drawing.Size(636, 319);
             this.lstCelulares.TabIndex = 2;
             // 
-            // button4
+            // btnComprar
             // 
-            this.button4.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(119, 631);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(82, 28);
-            this.button4.TabIndex = 7;
-            this.button4.Text = ">>";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnComprar.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnComprar.Location = new System.Drawing.Point(119, 662);
+            this.btnComprar.Name = "btnComprar";
+            this.btnComprar.Size = new System.Drawing.Size(82, 28);
+            this.btnComprar.TabIndex = 7;
+            this.btnComprar.Text = "&Comprar";
+            this.btnComprar.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnNovo
             // 
-            this.button5.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(388, 631);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(82, 28);
-            this.button5.TabIndex = 8;
-            this.button5.Text = ">>";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnNovo.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovo.Location = new System.Drawing.Point(316, 662);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(82, 28);
+            this.btnNovo.TabIndex = 8;
+            this.btnNovo.Text = "&Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSair.Location = new System.Drawing.Point(521, 662);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(82, 28);
+            this.btnSair.TabIndex = 9;
+            this.btnSair.Text = "Sai&r";
+            this.btnSair.UseVisualStyleBackColor = true;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 695);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.ClientSize = new System.Drawing.Size(733, 728);
+            this.Controls.Add(this.btnSair);
+            this.Controls.Add(this.btnNovo);
+            this.Controls.Add(this.btnComprar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,8 +279,8 @@
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numPrecoInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecoMaximo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPrecoMinimo)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -260,21 +289,23 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numPrecoInicial;
+        private System.Windows.Forms.NumericUpDown numPrecoMinimo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbFabricante;
+        private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.Button btnPesquisarFabricante;
+        private System.Windows.Forms.Button btnPesquisarModelo;
+        private System.Windows.Forms.Button btnPesquisarPreco;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numPrecoMaximo;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox lstCelulares;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnComprar;
+        private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.Button btnSair;
+        private System.Windows.Forms.Button btnListarTodos;
     }
 }
 

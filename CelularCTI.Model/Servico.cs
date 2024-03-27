@@ -16,12 +16,12 @@ namespace CelularCTI.Model
     {
         // Métodos que vão criar e atribuir os dados para os objetos que 
         // representam as entidades
-        public static Fabricante ObjFabricante(ref NpgsqlDataReader dtr)
+        private static Fabricante ObjFabricante(ref NpgsqlDataReader dtr)
         {
             Fabricante fab = new Fabricante();
             fab.Id_Fabricante = Convert.ToInt64(dtr["id_fabricante"]);
             fab.Nome = dtr["nome"].ToString();
-            //fab.Observacao = dtr["observacao"].ToString();
+            fab.Observacao = dtr["observacao"].ToString();
             return fab;
         }
 
@@ -29,7 +29,7 @@ namespace CelularCTI.Model
         {
             Aparelho a = new Aparelho();
             a.Id_Aparelho = Convert.ToInt64(dtr["id_aparelho"]);
-            a.Modelo = (string)dtr["modelo"];
+            a.Modelo = dtr["modelo"].ToString();
             a.Quantidade = Convert.ToDouble(dtr["quantidade"]);
             a.Largura = Convert.ToDouble(dtr["largura"]);
             a.Altura = Convert.ToDouble(dtr["altura"]);
@@ -42,7 +42,7 @@ namespace CelularCTI.Model
             return a;
         }
 
-        public static Pedido ObjPedido(ref NpgsqlDataReader dtr)
+        private static Pedido ObjPedido(ref NpgsqlDataReader dtr)
         {
             Pedido ped = new Pedido();
             ped.Id_Pedido = Convert.ToInt64(dtr["id_pedido"]);
@@ -131,19 +131,6 @@ namespace CelularCTI.Model
             return aparelho;
         }
 
-        public static Fabricante BuscarFabricante( Int64 id )
-        {
-            string sql;
-            Fabricante fab = new Fabricante();
-            sql = "select * from fabricante ";
-            sql += "   where id_fabricante = " + id;
-
-            NpgsqlDataReader dtr = ConexaoBanco.Selecionar(sql);
-            dtr.Read();
-            fab = ObjFabricante(ref dtr);
-            dtr.Close();
-            return fab;
-        }
         // Where nome.upper() like '%bicudo%'.ToUpper()
         // Where nome.lower() like 'bicudo%'.ToLower()
         // Where nome like '%bicudo'
@@ -157,6 +144,24 @@ namespace CelularCTI.Model
                         "ON aparelho.id_fabricante = fabricante.id_fabricante " +
                   "WHERE aparelho.modelo ILIKE '%" + modelo + "%' " +
                   "ORDER BY aparelho.modelo";
+
+            NpgsqlDataReader dtr = ConexaoBanco.Selecionar(sql);
+            while (dtr.Read())
+                aparelho.Add(ObjAparelho(ref dtr));
+            dtr.Close();
+
+            return aparelho;
+        }
+
+        public static List<Aparelho> BuscarAparelho()
+        {
+            string sql;
+            List<Aparelho> aparelho = new List<Aparelho>();
+
+            sql = "SELECT aparelho.*, fabricante.* " +
+                       "FROM aparelho INNER JOIN fabricante " +
+                        "ON aparelho.id_fabricante = fabricante.id_fabricante " +
+                  "ORDER BY fabricante.nome, aparelho.modelo";
 
             NpgsqlDataReader dtr = ConexaoBanco.Selecionar(sql);
             while (dtr.Read())
@@ -202,7 +207,7 @@ namespace CelularCTI.Model
             return aparelho;
         }
 
-        public static List<Fabricante> TodosFabricantes()
+        public static List<Fabricante> BuscarFabricante()
         {
             List<Fabricante> fabricante = new List<Fabricante>();
             NpgsqlDataReader dtr = ConexaoBanco.Selecionar
@@ -211,6 +216,20 @@ namespace CelularCTI.Model
                 fabricante.Add(ObjFabricante(ref dtr));
             dtr.Close();
             return fabricante;
+        }
+
+        public static Fabricante BuscarFabricante(Int64 id)
+        {
+            string sql;
+            Fabricante fab = new Fabricante();
+            sql = "select * from fabricante ";
+            sql += "   where id_fabricante = " + id;
+
+            NpgsqlDataReader dtr = ConexaoBanco.Selecionar(sql);
+            dtr.Read();
+            fab = ObjFabricante(ref dtr);
+            dtr.Close();
+            return fab;
         }
         public static Pedido FazerPedido(Aparelho ap)
         {
