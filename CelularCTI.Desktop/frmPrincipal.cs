@@ -23,7 +23,8 @@ namespace CelularCTI.Desktop
 
         private void frmPrincipal_Activated(object sender, EventArgs e)
         {
-            
+            ap = Servico.BuscarAparelho();
+            lstCelulares.DataSource = ap;
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
@@ -33,9 +34,6 @@ namespace CelularCTI.Desktop
             cmbFabricante.DisplayMember = "nome";
             cmbFabricante.ValueMember = "id_fabricante";
             cmbFabricante.SelectedIndex = 0;
-
-            ap = Servico.BuscarAparelho();
-            lstCelulares.DataSource = ap;
         }
 
 
@@ -66,6 +64,45 @@ namespace CelularCTI.Desktop
         {
             ap = Servico.BuscarAparelho();
             lstCelulares.DataSource = ap;
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            frmNovoAparelho novo = new frmNovoAparelho();
+            novo.ShowDialog();
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            DialogResult resp;
+            resp = MessageBox.Show("Deseja realmente sair do sistem ?",
+                                        this.Text,
+                                        MessageBoxButtons.YesNo, 
+                                        MessageBoxIcon.Question);
+            if (resp == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void btnComprar_Click(object sender, EventArgs e)
+        {
+            Aparelho apSelecionado = new Aparelho();
+            apSelecionado = ap[lstCelulares.SelectedIndex];
+            if (apSelecionado.Quantidade > 0)
+            {
+                frmComprarAparelho comprarAparelho = new frmComprarAparelho(apSelecionado);
+                comprarAparelho.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("O Aparelho " + apSelecionado.Modelo + 
+                                        " não tem quantidade disponível em estoque !!!",
+                                this.Text,
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                lstCelulares.Focus();
+            }          
         }
     }
 }

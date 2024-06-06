@@ -76,6 +76,7 @@
             // 
             // cmbFabricante
             // 
+            this.cmbFabricante.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFabricante.FormattingEnabled = true;
             this.cmbFabricante.Location = new System.Drawing.Point(123, 122);
             this.cmbFabricante.Name = "cmbFabricante";
@@ -240,6 +241,7 @@
             this.btnComprar.TabIndex = 7;
             this.btnComprar.Text = "&Comprar";
             this.btnComprar.UseVisualStyleBackColor = true;
+            this.btnComprar.Click += new System.EventHandler(this.btnComprar_Click);
             // 
             // btnNovo
             // 
@@ -250,6 +252,7 @@
             this.btnNovo.TabIndex = 8;
             this.btnNovo.Text = "&Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // btnSair
             // 
@@ -260,6 +263,7 @@
             this.btnSair.TabIndex = 9;
             this.btnSair.Text = "Sai&r";
             this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // frmPrincipal
             // 

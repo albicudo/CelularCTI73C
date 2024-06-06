@@ -52,7 +52,7 @@ namespace CelularCTI.Model.Suporte
         //Executa uma query no banco de dados. (Sem retorno)
         // insert - update - delete
         public static void Executar(string sql)
-        {
+        { 
             try
             {
                 Conectar();
